@@ -1,0 +1,463 @@
+{
+  "common": {
+    "appName": "Tournify",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "loading": "Loading...",
+    "search": "Search",
+    "noResults": "No results found",
+    "allChangesSaved": "All changes saved",
+    "realtimeConnected": "Realtime connected",
+    "backupCreated": "Backup created",
+    "noConflicts": "No schedule conflicts detected",
+    "tournamentReady": "Tournament ready",
+    "offline": "You are offline",
+    "reconnecting": "Reconnecting...",
+    "syncPending": "Changes pending sync",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "close": "Close",
+    "optional": "Optional",
+    "required": "Required",
+    "actions": "Actions",
+    "status": "Status",
+    "date": "Date",
+    "time": "Time",
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "language": "Language",
+    "settings": "Settings",
+    "logout": "Sign out",
+    "profile": "Profile",
+    "help": "Help",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode"
+  },
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "tournaments": "Tournaments",
+    "createTournament": "Create Tournament",
+    "schedule": "Schedule",
+    "standings": "Standings",
+    "bracket": "Bracket",
+    "teams": "Teams",
+    "referees": "Referees",
+    "settings": "Settings",
+    "live": "Live"
+  },
+  "landing": {
+    "hero": {
+      "badge": "The future of tournament organization",
+      "title": "The Operating System for Youth Sports Tournaments",
+      "subtitle": "Stop fighting Excel, WhatsApp chaos and paper schedules. Tournify gives you full control of every tournament — from setup to the final whistle.",
+      "cta": "Start for free",
+      "ctaSecondary": "See how it works",
+      "trustedBy": "Trusted by tournament organizers across Europe"
+    },
+    "features": {
+      "title": "Everything you need. Nothing you don't.",
+      "subtitle": "Built for real-world tournament conditions — outdoors, under pressure, on mobile.",
+      "scheduling": {
+        "title": "Smart Scheduling",
+        "description": "Auto-generate fair schedules in seconds. No conflicts, balanced rest times, pitch optimization."
+      },
+      "live": {
+        "title": "Live Experience",
+        "description": "Real-time scores, standings, and bracket updates for everyone. Spectators feel the tournament energy."
+      },
+      "mobile": {
+        "title": "Mobile-First",
+        "description": "Built for the pitch. Works perfectly under sunlight, on older phones, with weak internet."
+      },
+      "roles": {
+        "title": "Role-Based Views",
+        "description": "Organizers, referees, players, and spectators each see exactly what they need — nothing more."
+      },
+      "export": {
+        "title": "Professional PDFs",
+        "description": "Generate beautiful schedules, standings, and brackets as PDFs in one click."
+      },
+      "multilingual": {
+        "title": "Multilingual",
+        "description": "Full support for English, Slovenian, Croatian, and German. More languages coming."
+      }
+    },
+    "howItWorks": {
+      "title": "Tournament ready in minutes",
+      "step1": { "title": "Create your tournament", "description": "Set sport, format, teams, pitches and dates." },
+      "step2": { "title": "Auto-schedule", "description": "Our engine builds a conflict-free schedule instantly." },
+      "step3": { "title": "Go live", "description": "Share the QR code. Everyone has live access in seconds." }
+    },
+    "cta": {
+      "title": "Run your next tournament stress-free",
+      "subtitle": "Join hundreds of organizers who never want to go back to spreadsheets.",
+      "button": "Get started — it's free"
+    },
+    "footer": {
+      "tagline": "The operating system for grassroots sports.",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "contact": "Contact"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your Tournify account",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Your password",
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign in",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "or": "or continue with"
+    },
+    "register": {
+      "title": "Create your account",
+      "subtitle": "Start organizing tournaments for free",
+      "nameLabel": "Full name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "At least 8 characters",
+      "submit": "Create account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "termsAgree": "By creating an account, you agree to our",
+      "terms": "Terms of Service",
+      "and": "and",
+      "privacy": "Privacy Policy"
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email and we'll send you a reset link",
+      "emailLabel": "Email address",
+      "submit": "Send reset link",
+      "backToLogin": "Back to sign in",
+      "successTitle": "Check your email",
+      "successMessage": "We sent a password reset link to your email."
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back,",
+    "subtitle": "Manage your tournaments and stay on top of live events.",
+    "myTournaments": "My Tournaments",
+    "activeTournaments": "Active",
+    "upcomingTournaments": "Upcoming",
+    "completedTournaments": "Completed",
+    "createFirst": "Create your first tournament",
+    "createFirstSubtitle": "Get started in under 5 minutes.",
+    "createTournament": "Create Tournament",
+    "stats": {
+      "total": "Total Tournaments",
+      "active": "Live Now",
+      "teams": "Teams Managed",
+      "matches": "Matches Played"
+    },
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "viewSchedule": "View Schedule",
+    "manageTeams": "Manage Teams",
+    "enterResults": "Enter Results",
+    "exportPDF": "Export PDF"
+  },
+  "tournament": {
+    "status": {
+      "draft": "Draft",
+      "upcoming": "Upcoming",
+      "active": "Live",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "format": {
+      "group_stage": "Group Stage",
+      "group_knockout": "Group + Knockout",
+      "knockout": "Knockout",
+      "round_robin": "Round Robin",
+      "swiss": "Swiss"
+    },
+    "sport": {
+      "football": "Football",
+      "basketball": "Basketball",
+      "volleyball": "Volleyball",
+      "handball": "Handball",
+      "futsal": "Futsal",
+      "other": "Other"
+    },
+    "overview": {
+      "title": "Overview",
+      "matchesToday": "Matches Today",
+      "teamsCount": "Teams",
+      "groupsCount": "Groups",
+      "pitchesCount": "Pitches",
+      "matchesPlayed": "Matches Played",
+      "matchesRemaining": "Remaining",
+      "nextMatch": "Next Match",
+      "in": "in"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "schedule": "Schedule",
+      "standings": "Standings",
+      "bracket": "Bracket",
+      "teams": "Teams",
+      "referees": "Referees",
+      "settings": "Settings"
+    },
+    "announcements": {
+      "title": "Announcements",
+      "add": "New Announcement",
+      "placeholder": "Write an announcement...",
+      "send": "Send"
+    }
+  },
+  "create": {
+    "title": "Create Tournament",
+    "steps": {
+      "basics": "Basics",
+      "format": "Format",
+      "teams": "Teams",
+      "schedule": "Schedule",
+      "confirm": "Confirm"
+    },
+    "basics": {
+      "title": "Tournament basics",
+      "nameLabel": "Tournament name",
+      "namePlaceholder": "e.g. Spring Cup 2025",
+      "sportLabel": "Sport",
+      "locationLabel": "Location",
+      "locationPlaceholder": "e.g. Sports Centre Ljubljana",
+      "dateStartLabel": "Start date",
+      "dateEndLabel": "End date",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Optional description..."
+    },
+    "format": {
+      "title": "Tournament format",
+      "formatLabel": "Tournament format",
+      "groupsLabel": "Number of groups",
+      "teamsPerGroupLabel": "Teams per group",
+      "advancePerGroupLabel": "Teams advancing per group",
+      "matchDurationLabel": "Match duration (minutes)",
+      "breakDurationLabel": "Break between matches (minutes)",
+      "pitchesLabel": "Number of pitches",
+      "refereeSystemLabel": "Referee system",
+      "pointsWinLabel": "Points for win",
+      "pointsDrawLabel": "Points for draw",
+      "pointsLossLabel": "Points for loss"
+    },
+    "teams": {
+      "title": "Add teams",
+      "subtitle": "Add teams to your tournament",
+      "teamNameLabel": "Team name",
+      "teamNamePlaceholder": "Team name",
+      "clubLabel": "Club / School",
+      "clubPlaceholder": "Optional",
+      "addTeam": "Add team",
+      "removeTeam": "Remove",
+      "teamsAdded": "teams added",
+      "minTeams": "Add at least 4 teams to continue.",
+      "importCSV": "Import from CSV",
+      "assignGroups": "Assign to groups",
+      "auto": "Auto-assign"
+    },
+    "schedule": {
+      "title": "Generate schedule",
+      "subtitle": "Set the time window and let the engine do the work.",
+      "startTimeLabel": "Tournament start time",
+      "endTimeLabel": "Tournament end time",
+      "lunchBreakLabel": "Lunch break",
+      "lunchStartLabel": "Break start",
+      "lunchEndLabel": "Break end",
+      "generateButton": "Generate Schedule",
+      "regenerate": "Regenerate",
+      "qualityScore": "Schedule quality",
+      "conflicts": "Conflicts detected",
+      "noConflicts": "No conflicts — schedule looks great!",
+      "matchesGenerated": "matches generated",
+      "fairnessScore": "Fairness score"
+    },
+    "confirm": {
+      "title": "Review & confirm",
+      "subtitle": "Everything looks good? Create your tournament.",
+      "createButton": "Create Tournament",
+      "summary": "Summary"
+    }
+  },
+  "schedule": {
+    "title": "Schedule",
+    "filterByPitch": "Filter by pitch",
+    "filterByGroup": "Filter by group",
+    "filterByTeam": "Filter by team",
+    "allPitches": "All pitches",
+    "allGroups": "All groups",
+    "allTeams": "All teams",
+    "exportSchedule": "Export schedule",
+    "match": "Match",
+    "pitch": "Pitch",
+    "group": "Group",
+    "referee": "Referee",
+    "vs": "vs",
+    "result": "Result",
+    "status": {
+      "scheduled": "Scheduled",
+      "live": "Live",
+      "completed": "Completed",
+      "postponed": "Postponed",
+      "cancelled": "Cancelled"
+    },
+    "enterResult": "Enter result",
+    "editResult": "Edit result",
+    "startMatch": "Start match",
+    "endMatch": "End match",
+    "homeScore": "Home",
+    "awayScore": "Away",
+    "saveResult": "Save result",
+    "noMatches": "No matches scheduled"
+  },
+  "standings": {
+    "title": "Standings",
+    "group": "Group",
+    "team": "Team",
+    "played": "P",
+    "won": "W",
+    "drawn": "D",
+    "lost": "L",
+    "goalsFor": "GF",
+    "goalsAgainst": "GA",
+    "goalDifference": "GD",
+    "points": "Pts",
+    "form": "Form",
+    "rank": "#",
+    "advances": "Advances",
+    "eliminated": "Eliminated",
+    "exportStandings": "Export standings"
+  },
+  "bracket": {
+    "title": "Bracket",
+    "quarterfinals": "Quarterfinals",
+    "semifinals": "Semifinals",
+    "thirdPlace": "3rd Place",
+    "final": "Final",
+    "champion": "Champion",
+    "tbd": "TBD",
+    "winner": "Winner",
+    "exportBracket": "Export bracket"
+  },
+  "teams": {
+    "title": "Teams",
+    "addTeam": "Add team",
+    "editTeam": "Edit team",
+    "deleteTeam": "Delete team",
+    "teamName": "Team name",
+    "club": "Club",
+    "group": "Group",
+    "coach": "Coach",
+    "players": "Players",
+    "contact": "Contact",
+    "noTeams": "No teams added yet"
+  },
+  "referees": {
+    "title": "Referees",
+    "addReferee": "Add referee",
+    "editReferee": "Edit referee",
+    "deleteReferee": "Delete referee",
+    "refereeName": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "assignedMatches": "Assigned matches",
+    "availability": "Availability",
+    "noReferees": "No referees added",
+    "myMatches": "My Matches",
+    "nextMatch": "Next match"
+  },
+  "live": {
+    "title": "Live",
+    "matchRunning": "Match in progress",
+    "minute": "min",
+    "liveNow": "LIVE",
+    "scoreUpdated": "Score updated",
+    "matchStarted": "Match started",
+    "matchEnded": "Match ended",
+    "halfTime": "Half time",
+    "extraTime": "Extra time",
+    "penaltyShootout": "Penalty shootout",
+    "eventFeed": "Live feed",
+    "noLiveMatches": "No live matches right now"
+  },
+  "spectator": {
+    "title": "Live Tournament",
+    "scanQR": "Scan to follow",
+    "poweredBy": "Powered by Tournify",
+    "shareLink": "Share link",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied!",
+    "followTeam": "Follow team",
+    "notifications": "Notifications",
+    "enableNotifications": "Enable notifications",
+    "nextMatch": "Next match",
+    "latestResults": "Latest results",
+    "topScorers": "Top scorers"
+  },
+  "referee": {
+    "myMatches": "My Matches",
+    "upcoming": "Upcoming",
+    "completed": "Completed",
+    "enterScore": "Enter Score",
+    "confirmResult": "Confirm result",
+    "notes": "Match notes",
+    "notesPlaceholder": "Disciplinary notes, incidents...",
+    "yellowCard": "Yellow card",
+    "redCard": "Red card",
+    "goal": "Goal"
+  },
+  "player": {
+    "myTeam": "My Team",
+    "nextMatch": "Next match",
+    "groupStanding": "Group standing",
+    "teammates": "Teammates",
+    "matchHistory": "Match history"
+  },
+  "pdf": {
+    "fullSchedule": "Full Schedule",
+    "scheduleByTeam": "Schedule by Team",
+    "scheduleByPitch": "Schedule by Pitch",
+    "refereeSheet": "Referee Sheet",
+    "standingsReport": "Standings Report",
+    "bracketReport": "Playoff Bracket",
+    "tournamentSummary": "Tournament Summary",
+    "generatedAt": "Generated at",
+    "page": "Page",
+    "of": "of"
+  },
+  "errors": {
+    "general": "Something went wrong. Please try again.",
+    "networkError": "Network error. Check your connection.",
+    "notFound": "Page not found.",
+    "unauthorized": "You are not authorized to view this page.",
+    "tournamentNotFound": "Tournament not found.",
+    "invalidCredentials": "Invalid email or password."
+  },
+  "notifications": {
+    "matchStartingSoon": "Your next match starts in {minutes} minutes.",
+    "matchStarted": "Match started: {home} vs {away}",
+    "scoreUpdated": "Score updated: {home} {scoreHome} - {scoreAway} {away}",
+    "matchEnded": "Final: {home} {scoreHome} - {scoreAway} {away}",
+    "teamAdvanced": "{team} advanced to {round}!",
+    "pitchChanged": "Match moved to Pitch {pitch}",
+    "announcement": "Announcement: {message}"
+  }
+}
