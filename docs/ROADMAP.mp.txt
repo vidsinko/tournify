@@ -1,0 +1,12 @@
+MVP PRIORITY
+
+1. Stability during live tournaments
+2. Simple tournament creation
+3. Mobile schedule + live results
+4. Role-based views
+5. Manual overrides
+6. PDF export
+7. Notifications
+8. Registrations + payments
+9. AI assistance
+10. Multi-sport expansion

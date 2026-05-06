@@ -1,0 +1,73 @@
+# Product Principles
+
+This platform prioritizes:
+
+1. Stability during live tournaments
+2. Simplicity over complexity
+3. Mobile-first experience
+4. Stress reduction for organizers
+5. Fast and reliable live updates
+
+Every product decision should support these principles.
+
+REFERENCE FILES & DESIGN DIRECTION
+==================================================
+
+IMPORTANT:
+Reference files for product direction, UI inspiration, UX behavior and tournament flow are included in the project repository.
+
+Reference files:
+- PRODUCT_REQUIREMENTS.md
+- ARCHITECTURE.md
+- UI_UX_GUIDELINES.md
+- ROADMAP.md
+- tourify-concept.jpg
+
+These files should be treated as:
+- product inspiration
+- UX direction
+- tournament workflow reference
+- visual quality reference
+- interaction reference
+
+IMPORTANT:
+Do NOT copy competitors directly.
+
+Instead:
+analyze the references and build a significantly more modern, simpler, faster and more premium experience.
+
+The final product should:
+- feel cleaner
+- feel more intuitive
+- feel more alive during live tournaments
+- have dramatically better mobile UX
+- have less complexity
+- have more operational clarity
+- feel like a world-class modern sports-tech platform
+
+Use the references to understand:
+- tournament flows
+- common organizer workflows
+- scheduling patterns
+- live event needs
+- common tournament structures
+
+But improve:
+- UI quality
+- mobile usability
+- speed
+- simplicity
+- emotional live experience
+- visual hierarchy
+- stress reduction for organizers
+
+The references are starting points,
+NOT the final standard.
+
+CATEGORY-DOMINATING PRODUCT STRATEGY, STABILITY & SIMPLICITY REQUIREMENTS
+
+IMPORTANT:
+Do NOT build “another tournament app”.
+
+The goal is to build:
+THE OPERATING SYSTEM FOR YOUTH & AMATEUR SPORTS TOURNAMENTS.

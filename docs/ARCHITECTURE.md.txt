@@ -1,0 +1,31 @@
+TOURNAMENT DAY PANIC PROTECTION
+==================================================
+
+Most competitors fail under tournament stress.
+
+This platform must become:
+THE MOST TRUSTWORTHY TOURNAMENT PLATFORM.
+
+Build obsessive reliability systems:
+- autosave
+- offline fallback
+- local caching
+- PDF backup
+- restore points
+- rollback system placeholders
+- duplicate prevention
+- emergency recovery mode
+- safe editing states
+- conflict recovery
+- resilient sync handling
+
+The organizer must NEVER feel:
+“If this app crashes, we are doomed.”
+
+==================================================
+7. STABILITY IS A PRODUCT FEATURE
+==================================================
+
+This is NOT just engineering.
+
+Stability is a core product feature.

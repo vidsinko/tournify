@@ -1,0 +1,22 @@
+2. SIMPLICITY-FIRST UX
+==================================================
+
+Most competitors fail because:
+- too many settings
+- too many screens
+- too many controls
+- overwhelming setup
+- cluttered dashboards
+
+THIS PRODUCT MUST FEEL:
+- minimal
+- focused
+- lightweight
+- calm
+- modern
+
+DO NOT:
+- overload screens
+- create giant forms
+- create complicated navigation
+- expose unnecessary settings
