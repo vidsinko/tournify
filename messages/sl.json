@@ -1,0 +1,463 @@
+{
+  "common": {
+    "appName": "Tournify",
+    "save": "Shrani",
+    "cancel": "Prekliči",
+    "delete": "Izbriši",
+    "edit": "Uredi",
+    "create": "Ustvari",
+    "back": "Nazaj",
+    "next": "Naprej",
+    "finish": "Končaj",
+    "loading": "Nalaganje...",
+    "search": "Iskanje",
+    "noResults": "Ni rezultatov",
+    "allChangesSaved": "Vse spremembe shranjene",
+    "realtimeConnected": "Povezan v realnem času",
+    "backupCreated": "Varnostna kopija ustvarjena",
+    "noConflicts": "Ni zaznanih konfliktov v razporedu",
+    "tournamentReady": "Turnir je pripravljen",
+    "offline": "Brez internetne povezave",
+    "reconnecting": "Vzpostavljanje povezave...",
+    "syncPending": "Čakam na sinhronizacijo",
+    "yes": "Da",
+    "no": "Ne",
+    "confirm": "Potrdi",
+    "close": "Zapri",
+    "optional": "Neobvezno",
+    "required": "Obvezno",
+    "actions": "Dejanja",
+    "status": "Status",
+    "date": "Datum",
+    "time": "Čas",
+    "name": "Ime",
+    "email": "E-pošta",
+    "phone": "Telefon",
+    "language": "Jezik",
+    "settings": "Nastavitve",
+    "logout": "Odjava",
+    "profile": "Profil",
+    "help": "Pomoč",
+    "darkMode": "Temni način",
+    "lightMode": "Svetli način"
+  },
+  "nav": {
+    "home": "Domov",
+    "dashboard": "Nadzorna plošča",
+    "tournaments": "Turnirji",
+    "createTournament": "Ustvari turnir",
+    "schedule": "Razpored",
+    "standings": "Lestvica",
+    "bracket": "Izločilni boji",
+    "teams": "Ekipe",
+    "referees": "Sodniki",
+    "settings": "Nastavitve",
+    "live": "V živo"
+  },
+  "landing": {
+    "hero": {
+      "badge": "Prihodnost organizacije turnirjev",
+      "title": "Operacijski sistem za mladinske športne turnirje",
+      "subtitle": "Nehajte se boriti z Excelom, kaosom na WhatsAppu in papirnatimi razporedi. Tournify vam daje popoln nadzor nad vsakim turnirjem.",
+      "cta": "Začni brezplačno",
+      "ctaSecondary": "Kako deluje",
+      "trustedBy": "Zaupajo mu organizatorji turnirjev po vsej Evropi"
+    },
+    "features": {
+      "title": "Vse kar potrebuješ. Nič kar ne.",
+      "subtitle": "Ustvarjeno za resnične pogoje turnirjev — zunaj, pod pritiskom, na mobilnem telefonu.",
+      "scheduling": {
+        "title": "Pametno razporejanje",
+        "description": "Samodejno ustvarite pravičen razpored v sekundah. Brez konfliktov, uravnoteženi časi počitka."
+      },
+      "live": {
+        "title": "Izkušnja v živo",
+        "description": "Rezultati v realnem času, lestvice in posodobitve izločilnih bojev za vse."
+      },
+      "mobile": {
+        "title": "Najprej mobilni",
+        "description": "Ustvarjeno za igrišče. Deluje popolno na soncu, na starejših telefonih, s slabo internetno povezavo."
+      },
+      "roles": {
+        "title": "Pogledi glede na vlogo",
+        "description": "Organizatorji, sodniki, igralci in gledalci vidijo natanko tisto, kar potrebujejo."
+      },
+      "export": {
+        "title": "Profesionalni PDF-ji",
+        "description": "Ustvarite lepe razporede, lestvice in izločilne boje kot PDF-je z enim klikom."
+      },
+      "multilingual": {
+        "title": "Večjezičen",
+        "description": "Popolna podpora za angleščino, slovenščino, hrvaščino in nemščino."
+      }
+    },
+    "howItWorks": {
+      "title": "Turnir pripravljen v minutah",
+      "step1": { "title": "Ustvari turnir", "description": "Nastavi šport, format, ekipe, igrišča in datume." },
+      "step2": { "title": "Samodejni razpored", "description": "Naš algoritem takoj ustvari razpored brez konfliktov." },
+      "step3": { "title": "Pojdi v živo", "description": "Deli QR kodo. Vsi imajo dostop v živo v sekundah." }
+    },
+    "cta": {
+      "title": "Organiziraj naslednji turnir brez stresa",
+      "subtitle": "Pridruži se stotim organizatorjem, ki se nikoli ne bodo vrnili k preglednicam.",
+      "button": "Začni — brezplačno"
+    },
+    "footer": {
+      "tagline": "Operacijski sistem za grassroots šport.",
+      "privacy": "Zasebnost",
+      "terms": "Pogoji",
+      "contact": "Kontakt"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Dobrodošel nazaj",
+      "subtitle": "Prijavi se v račun Tournify",
+      "emailLabel": "E-poštni naslov",
+      "emailPlaceholder": "ti@primer.com",
+      "passwordLabel": "Geslo",
+      "passwordPlaceholder": "Tvoje geslo",
+      "forgotPassword": "Pozabljeno geslo?",
+      "submit": "Prijava",
+      "noAccount": "Nimaš računa?",
+      "signUp": "Registracija",
+      "or": "ali nadaljuj z"
+    },
+    "register": {
+      "title": "Ustvari račun",
+      "subtitle": "Začni organizirati turnirje brezplačno",
+      "nameLabel": "Polno ime",
+      "namePlaceholder": "Tvoje ime",
+      "emailLabel": "E-poštni naslov",
+      "emailPlaceholder": "ti@primer.com",
+      "passwordLabel": "Geslo",
+      "passwordPlaceholder": "Vsaj 8 znakov",
+      "submit": "Ustvari račun",
+      "hasAccount": "Že imaš račun?",
+      "signIn": "Prijava",
+      "termsAgree": "Z ustvarjanjem računa se strinjaš z",
+      "terms": "Pogoji storitve",
+      "and": "in",
+      "privacy": "Politiko zasebnosti"
+    },
+    "forgotPassword": {
+      "title": "Ponastavi geslo",
+      "subtitle": "Vpiši e-pošto in poslali ti bomo povezavo za ponastavitev",
+      "emailLabel": "E-poštni naslov",
+      "submit": "Pošlji povezavo",
+      "backToLogin": "Nazaj na prijavo",
+      "successTitle": "Preveri e-pošto",
+      "successMessage": "Poslali smo ti povezavo za ponastavitev gesla."
+    }
+  },
+  "dashboard": {
+    "title": "Nadzorna plošča",
+    "welcome": "Dobrodošel nazaj,",
+    "subtitle": "Upravljaj svoje turnirje in ostani na vrhu živih dogodkov.",
+    "myTournaments": "Moji turnirji",
+    "activeTournaments": "Aktivni",
+    "upcomingTournaments": "Prihajajoči",
+    "completedTournaments": "Zaključeni",
+    "createFirst": "Ustvari prvi turnir",
+    "createFirstSubtitle": "Začni v manj kot 5 minutah.",
+    "createTournament": "Ustvari turnir",
+    "stats": {
+      "total": "Skupaj turnirjev",
+      "active": "V živo zdaj",
+      "teams": "Upravljane ekipe",
+      "matches": "Odigrane tekme"
+    },
+    "recentActivity": "Nedavna dejavnost",
+    "quickActions": "Hitre akcije",
+    "viewSchedule": "Oglej razpored",
+    "manageTeams": "Upravljaj ekipe",
+    "enterResults": "Vnesi rezultate",
+    "exportPDF": "Izvozi PDF"
+  },
+  "tournament": {
+    "status": {
+      "draft": "Osnutek",
+      "upcoming": "Prihajajoči",
+      "active": "V živo",
+      "completed": "Zaključen",
+      "cancelled": "Preklican"
+    },
+    "format": {
+      "group_stage": "Skupinska faza",
+      "group_knockout": "Skupina + izločilni boji",
+      "knockout": "Izločilni boji",
+      "round_robin": "Vsak z vsakim",
+      "swiss": "Švicarski sistem"
+    },
+    "sport": {
+      "football": "Nogomet",
+      "basketball": "Košarka",
+      "volleyball": "Odbojka",
+      "handball": "Rokomet",
+      "futsal": "Futsal",
+      "other": "Drugo"
+    },
+    "overview": {
+      "title": "Pregled",
+      "matchesToday": "Tekme danes",
+      "teamsCount": "Ekipe",
+      "groupsCount": "Skupine",
+      "pitchesCount": "Igrišča",
+      "matchesPlayed": "Odigrane tekme",
+      "matchesRemaining": "Preostalo",
+      "nextMatch": "Naslednja tekma",
+      "in": "čez"
+    },
+    "tabs": {
+      "overview": "Pregled",
+      "schedule": "Razpored",
+      "standings": "Lestvica",
+      "bracket": "Izločilni boji",
+      "teams": "Ekipe",
+      "referees": "Sodniki",
+      "settings": "Nastavitve"
+    },
+    "announcements": {
+      "title": "Obvestila",
+      "add": "Novo obvestilo",
+      "placeholder": "Napiši obvestilo...",
+      "send": "Pošlji"
+    }
+  },
+  "create": {
+    "title": "Ustvari turnir",
+    "steps": {
+      "basics": "Osnove",
+      "format": "Format",
+      "teams": "Ekipe",
+      "schedule": "Razpored",
+      "confirm": "Potrdi"
+    },
+    "basics": {
+      "title": "Osnove turnirja",
+      "nameLabel": "Ime turnirja",
+      "namePlaceholder": "npr. Spomladanski pokal 2025",
+      "sportLabel": "Šport",
+      "locationLabel": "Lokacija",
+      "locationPlaceholder": "npr. Športni center Ljubljana",
+      "dateStartLabel": "Datum začetka",
+      "dateEndLabel": "Datum konca",
+      "descriptionLabel": "Opis",
+      "descriptionPlaceholder": "Neobvezni opis..."
+    },
+    "format": {
+      "title": "Format turnirja",
+      "formatLabel": "Format turnirja",
+      "groupsLabel": "Število skupin",
+      "teamsPerGroupLabel": "Ekipe na skupino",
+      "advancePerGroupLabel": "Ekipe, ki napredujejo iz skupine",
+      "matchDurationLabel": "Trajanje tekme (minute)",
+      "breakDurationLabel": "Odmor med tekmami (minute)",
+      "pitchesLabel": "Število igrišč",
+      "refereeSystemLabel": "Sistem sodnikov",
+      "pointsWinLabel": "Točke za zmago",
+      "pointsDrawLabel": "Točke za remi",
+      "pointsLossLabel": "Točke za poraz"
+    },
+    "teams": {
+      "title": "Dodaj ekipe",
+      "subtitle": "Dodaj ekipe v turnir",
+      "teamNameLabel": "Ime ekipe",
+      "teamNamePlaceholder": "Ime ekipe",
+      "clubLabel": "Klub / Šola",
+      "clubPlaceholder": "Neobvezno",
+      "addTeam": "Dodaj ekipo",
+      "removeTeam": "Odstrani",
+      "teamsAdded": "ekip dodanih",
+      "minTeams": "Dodaj vsaj 4 ekipe za nadaljevanje.",
+      "importCSV": "Uvozi iz CSV",
+      "assignGroups": "Razporedi v skupine",
+      "auto": "Samodejno"
+    },
+    "schedule": {
+      "title": "Ustvari razpored",
+      "subtitle": "Nastavi časovno okno in pustite algorithmu, da opravi delo.",
+      "startTimeLabel": "Čas začetka turnirja",
+      "endTimeLabel": "Čas konca turnirja",
+      "lunchBreakLabel": "Malica",
+      "lunchStartLabel": "Začetek odmora",
+      "lunchEndLabel": "Konec odmora",
+      "generateButton": "Ustvari razpored",
+      "regenerate": "Ponovno ustvari",
+      "qualityScore": "Kakovost razporeda",
+      "conflicts": "Zaznani konflikti",
+      "noConflicts": "Ni konfliktov — razpored je odličen!",
+      "matchesGenerated": "tekem ustvarjenih",
+      "fairnessScore": "Ocena pravičnosti"
+    },
+    "confirm": {
+      "title": "Pregled in potrditev",
+      "subtitle": "Vse izgleda dobro? Ustvari turnir.",
+      "createButton": "Ustvari turnir",
+      "summary": "Povzetek"
+    }
+  },
+  "schedule": {
+    "title": "Razpored",
+    "filterByPitch": "Filtriraj po igrišču",
+    "filterByGroup": "Filtriraj po skupini",
+    "filterByTeam": "Filtriraj po ekipi",
+    "allPitches": "Vsa igrišča",
+    "allGroups": "Vse skupine",
+    "allTeams": "Vse ekipe",
+    "exportSchedule": "Izvozi razpored",
+    "match": "Tekma",
+    "pitch": "Igrišče",
+    "group": "Skupina",
+    "referee": "Sodnik",
+    "vs": "vs",
+    "result": "Rezultat",
+    "status": {
+      "scheduled": "Načrtovano",
+      "live": "V živo",
+      "completed": "Zaključeno",
+      "postponed": "Prestavljeno",
+      "cancelled": "Preklicano"
+    },
+    "enterResult": "Vnesi rezultat",
+    "editResult": "Uredi rezultat",
+    "startMatch": "Začni tekmo",
+    "endMatch": "Končaj tekmo",
+    "homeScore": "Domači",
+    "awayScore": "Gosti",
+    "saveResult": "Shrani rezultat",
+    "noMatches": "Ni načrtovanih tekem"
+  },
+  "standings": {
+    "title": "Lestvica",
+    "group": "Skupina",
+    "team": "Ekipa",
+    "played": "T",
+    "won": "Z",
+    "drawn": "R",
+    "lost": "P",
+    "goalsFor": "GD",
+    "goalsAgainst": "GP",
+    "goalDifference": "RG",
+    "points": "Točke",
+    "form": "Forma",
+    "rank": "#",
+    "advances": "Napreduje",
+    "eliminated": "Izpadel",
+    "exportStandings": "Izvozi lestvico"
+  },
+  "bracket": {
+    "title": "Izločilni boji",
+    "quarterfinals": "Četrtfinale",
+    "semifinals": "Polfinale",
+    "thirdPlace": "3. mesto",
+    "final": "Finale",
+    "champion": "Prvak",
+    "tbd": "TBD",
+    "winner": "Zmagovalec",
+    "exportBracket": "Izvozi izločilne boje"
+  },
+  "teams": {
+    "title": "Ekipe",
+    "addTeam": "Dodaj ekipo",
+    "editTeam": "Uredi ekipo",
+    "deleteTeam": "Izbriši ekipo",
+    "teamName": "Ime ekipe",
+    "club": "Klub",
+    "group": "Skupina",
+    "coach": "Trener",
+    "players": "Igralci",
+    "contact": "Kontakt",
+    "noTeams": "Ni dodanih ekip"
+  },
+  "referees": {
+    "title": "Sodniki",
+    "addReferee": "Dodaj sodnika",
+    "editReferee": "Uredi sodnika",
+    "deleteReferee": "Izbriši sodnika",
+    "refereeName": "Ime",
+    "email": "E-pošta",
+    "phone": "Telefon",
+    "assignedMatches": "Dodeljene tekme",
+    "availability": "Razpoložljivost",
+    "noReferees": "Ni dodanih sodnikov",
+    "myMatches": "Moje tekme",
+    "nextMatch": "Naslednja tekma"
+  },
+  "live": {
+    "title": "V živo",
+    "matchRunning": "Tekma poteka",
+    "minute": "min",
+    "liveNow": "V ŽIVO",
+    "scoreUpdated": "Rezultat posodobljen",
+    "matchStarted": "Tekma se je začela",
+    "matchEnded": "Tekma je končana",
+    "halfTime": "Polčas",
+    "extraTime": "Podaljšek",
+    "penaltyShootout": "Enajstmetrovke",
+    "eventFeed": "Feed v živo",
+    "noLiveMatches": "Trenutno ni tekem v živo"
+  },
+  "spectator": {
+    "title": "Turnir v živo",
+    "scanQR": "Skeniraj za sledenje",
+    "poweredBy": "Powered by Tournify",
+    "shareLink": "Deli povezavo",
+    "copyLink": "Kopiraj povezavo",
+    "linkCopied": "Povezava kopirana!",
+    "followTeam": "Sledi ekipi",
+    "notifications": "Obvestila",
+    "enableNotifications": "Omogoči obvestila",
+    "nextMatch": "Naslednja tekma",
+    "latestResults": "Najnovejši rezultati",
+    "topScorers": "Najboljši strelci"
+  },
+  "referee": {
+    "myMatches": "Moje tekme",
+    "upcoming": "Prihajajoče",
+    "completed": "Zaključene",
+    "enterScore": "Vnesi rezultat",
+    "confirmResult": "Potrdi rezultat",
+    "notes": "Opombe k tekmi",
+    "notesPlaceholder": "Disciplinske opombe, incidenti...",
+    "yellowCard": "Rumeni karton",
+    "redCard": "Rdeči karton",
+    "goal": "Gol"
+  },
+  "player": {
+    "myTeam": "Moja ekipa",
+    "nextMatch": "Naslednja tekma",
+    "groupStanding": "Uvrstitev v skupini",
+    "teammates": "Soigralci",
+    "matchHistory": "Zgodovina tekem"
+  },
+  "pdf": {
+    "fullSchedule": "Celoten razpored",
+    "scheduleByTeam": "Razpored po ekipi",
+    "scheduleByPitch": "Razpored po igrišču",
+    "refereeSheet": "List za sodnika",
+    "standingsReport": "Poročilo lestvice",
+    "bracketReport": "Izločilni boji",
+    "tournamentSummary": "Povzetek turnirja",
+    "generatedAt": "Ustvarjeno",
+    "page": "Stran",
+    "of": "od"
+  },
+  "errors": {
+    "general": "Prišlo je do napake. Prosimo, poskusite znova.",
+    "networkError": "Napaka omrežja. Preverite povezavo.",
+    "notFound": "Stran ni bila najdena.",
+    "unauthorized": "Nimate dovoljenja za ogled te strani.",
+    "tournamentNotFound": "Turnir ni bil najden.",
+    "invalidCredentials": "Napačen e-poštni naslov ali geslo."
+  },
+  "notifications": {
+    "matchStartingSoon": "Vaša naslednja tekma se začne čez {minutes} minut.",
+    "matchStarted": "Tekma se je začela: {home} vs {away}",
+    "scoreUpdated": "Rezultat posodobljen: {home} {scoreHome} - {scoreAway} {away}",
+    "matchEnded": "Končni rezultat: {home} {scoreHome} - {scoreAway} {away}",
+    "teamAdvanced": "{team} je napredoval v {round}!",
+    "pitchChanged": "Tekma prestavljena na Igrišče {pitch}",
+    "announcement": "Obvestilo: {message}"
+  }
+}
