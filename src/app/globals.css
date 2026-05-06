@@ -1,22 +1,25 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand Colors */
-  --color-brand-50: #eff6ff;
-  --color-brand-100: #dbeafe;
-  --color-brand-200: #bfdbfe;
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
-  --color-brand-800: #1e40af;
-  --color-brand-900: #1e3a8a;
+  /* Brand Colors — Violet/Purple */
+  --color-brand-50: #f5f3ff;
+  --color-brand-100: #ede9fe;
+  --color-brand-200: #ddd6fe;
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
+  --color-brand-800: #5b21b6;
+  --color-brand-900: #4c1d95;
+  --color-brand-950: #2e1065;
 
   /* Live / Success Green */
   --color-live-400: #4ade80;
   --color-live-500: #22c55e;
   --color-live-600: #16a34a;
+  --color-live-800: #166534;
+  --color-live-900: #14532d;
 
   /* Danger Red */
   --color-danger-400: #f87171;
@@ -27,6 +30,7 @@
   --color-warning-400: #fbbf24;
   --color-warning-500: #f59e0b;
   --color-warning-600: #d97706;
+  --color-warning-900: #451a03;
 
   /* Neutral Gray Scale */
   --color-surface-50: #f8fafc;
@@ -42,7 +46,7 @@
   --color-surface-950: #020617;
 
   /* Semantic */
-  --color-background: #0f172a;
+  --color-background: #0a0a15;
   --color-foreground: #f8fafc;
   --color-card: #1e293b;
   --color-card-hover: #263245;
@@ -62,8 +66,9 @@
   --radius-2xl: 1.5rem;
 
   /* Shadows */
-  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.15);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
   --shadow-glow-live: 0 0 20px rgba(34, 197, 94, 0.2);
+  --shadow-glow-brand: 0 0 40px rgba(124, 58, 237, 0.25);
 }
 
 * {
@@ -78,7 +83,7 @@ html {
 }
 
 body {
-  background-color: #0f172a;
+  background-color: #0a0a15;
   color: #f8fafc;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
@@ -104,7 +109,7 @@ body {
 
 /* Focus ring */
 :focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid #7c3aed;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -136,6 +141,11 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
 .animate-live-pulse {
   animation: live-pulse 1.5s ease-in-out infinite;
 }
@@ -150,6 +160,10 @@ body {
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
 
 .skeleton {
@@ -175,10 +189,29 @@ body {
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #60a5fa, #818cf8);
+  background: linear-gradient(135deg, #a78bfa, #c4b5fd);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Hero gradient orbs */
+.hero-orb-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-orb-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
 }
 
 /* Touch-friendly on mobile */

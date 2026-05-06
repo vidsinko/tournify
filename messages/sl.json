@@ -39,7 +39,8 @@
     "profile": "Profil",
     "help": "Pomoč",
     "darkMode": "Temni način",
-    "lightMode": "Svetli način"
+    "lightMode": "Svetli način",
+    "login": "Prijava"
   },
   "nav": {
     "home": "Domov",
