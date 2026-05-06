@@ -39,7 +39,8 @@
     "profile": "Profil",
     "help": "Hilfe",
     "darkMode": "Dunkelmodus",
-    "lightMode": "Hellmodus"
+    "lightMode": "Hellmodus",
+    "login": "Anmelden"
   },
   "nav": {
     "home": "Startseite",

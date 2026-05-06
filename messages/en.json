@@ -39,7 +39,8 @@
     "profile": "Profile",
     "help": "Help",
     "darkMode": "Dark mode",
-    "lightMode": "Light mode"
+    "lightMode": "Light mode",
+    "login": "Sign in"
   },
   "nav": {
     "home": "Home",
