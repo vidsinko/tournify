@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Trophy, Calendar, Bell, MoreHorizontal } from "lucide-react";
+import { Home, Trophy, Calendar, Zap, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function MobileBottomNav() {
@@ -15,69 +15,55 @@ export function MobileBottomNav() {
   const items = [
     {
       href: `/${locale}/dashboard`,
-      icon: LayoutDashboard,
+      icon: Home,
       label: "Home",
+      active: pathname.includes("/dashboard"),
     },
     {
-      href: tournamentId
-        ? `/${locale}/tournament/${tournamentId}`
-        : `/${locale}/dashboard`,
+      href: tournamentId ? `/${locale}/tournament/${tournamentId}` : `/${locale}/dashboard`,
       icon: Trophy,
-      label: "Tournament",
+      label: "Overview",
+      active: !!tournamentId && pathname === `/${locale}/tournament/${tournamentId}`,
     },
     {
-      href: tournamentId
-        ? `/${locale}/tournament/${tournamentId}/schedule`
-        : `/${locale}/dashboard`,
+      href: tournamentId ? `/${locale}/tournament/${tournamentId}/schedule` : `/${locale}/dashboard`,
       icon: Calendar,
       label: "Matches",
+      active: pathname.includes("/schedule"),
     },
     {
-      href: tournamentId
-        ? `/${locale}/tournament/${tournamentId}/live`
-        : `/${locale}/dashboard`,
-      icon: Bell,
+      href: tournamentId ? `/${locale}/tournament/${tournamentId}/live` : `/${locale}/dashboard`,
+      icon: Zap,
       label: "Live",
+      active: pathname.includes("/live"),
     },
     {
-      href: tournamentId
-        ? `/${locale}/tournament/${tournamentId}/settings`
-        : `/${locale}/dashboard`,
-      icon: MoreHorizontal,
+      href: tournamentId ? `/${locale}/tournament/${tournamentId}/settings` : `/${locale}/dashboard`,
+      icon: Settings,
       label: "More",
+      active: pathname.includes("/settings") || pathname.includes("/teams") || pathname.includes("/standings"),
     },
   ];
 
   return (
-    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-[#07070f]/95 backdrop-blur-md border-t border-surface-800/60">
+    <nav className="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-white/97 backdrop-blur-md border-t border-gray-200">
       <div className="flex items-center justify-around h-[60px] px-1 max-w-lg mx-auto">
-        {items.map(({ href, icon: Icon, label }) => {
-          const isActive =
-            pathname === href ||
-            (label === "Home" && pathname.includes("/dashboard")) ||
-            (label === "Tournament" &&
-              tournamentId &&
-              pathname === `/${locale}/tournament/${tournamentId}`) ||
-            (label === "Matches" && pathname.includes("/schedule")) ||
-            (label === "Live" && pathname.includes("/live"));
-
-          return (
-            <Link
-              key={label}
-              href={href}
-              className={cn(
-                "flex flex-col items-center gap-0.5 px-3 py-1 rounded-xl transition-colors min-w-[52px]",
-                isActive ? "text-brand-400" : "text-surface-600"
-              )}
-            >
-              <Icon className="h-5 w-5" />
-              <span className="text-[9px] font-semibold">{label}</span>
-            </Link>
-          );
-        })}
+        {items.map(({ href, icon: Icon, label, active }) => (
+          <Link
+            key={label}
+            href={href}
+            className={cn(
+              "flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors min-w-[52px]",
+              active ? "text-brand-600" : "text-gray-400"
+            )}
+          >
+            <Icon className={cn("h-5 w-5", active && "stroke-[2.5px]")} />
+            <span className={cn("text-[9px] font-semibold", active ? "text-brand-600" : "text-gray-400")}>
+              {label}
+            </span>
+          </Link>
+        ))}
       </div>
-      {/* Safe area for iPhone home indicator */}
-      <div className="h-safe-area-inset-bottom bg-[#07070f]/95" />
     </nav>
   );
 }

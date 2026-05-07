@@ -3,20 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  LayoutDashboard,
-  Trophy,
-  Users,
-  Calendar,
-  MapPin,
-  Shield,
-  Settings,
-  LogOut,
-  Plus,
-  ChevronLeft,
-  BarChart3,
-  Zap,
-  CreditCard,
-  ClipboardList,
+  LayoutDashboard, Trophy, Users, Calendar, MapPin, Shield,
+  Settings, LogOut, Plus, ChevronLeft, BarChart3, Zap,
+  CreditCard, ClipboardList,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
@@ -35,7 +24,7 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
   type NavLink = { href: string; icon: React.ComponentType<{ className?: string }>; label: string; exact?: boolean };
 
   const topLinks: NavLink[] = [
-    { href: `/${locale}/dashboard`, icon: LayoutDashboard, label: "Dashboard" },
+    { href: `/${locale}/dashboard`, icon: LayoutDashboard, label: "Dashboard", exact: true },
   ];
 
   const tournamentLinks: NavLink[] = tournamentId
@@ -68,26 +57,20 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
   };
 
   const userInitials = userName
-    ? userName
-        .split(" ")
-        .map((n) => n[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
+    ? userName.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase()
     : "U";
 
   return (
     <aside
       className={cn(
-        "hidden lg:flex flex-col shrink-0 min-h-screen border-r border-surface-800/40 transition-all duration-200",
-        collapsed ? "w-[56px]" : "w-[200px]",
-        "bg-[#07070f]"
+        "hidden lg:flex flex-col shrink-0 min-h-screen border-r border-gray-200 transition-all duration-200 bg-white",
+        collapsed ? "w-[56px]" : "w-[200px]"
       )}
     >
       {/* Logo row */}
       <div
         className={cn(
-          "h-14 flex items-center border-b border-surface-800/40 shrink-0",
+          "h-14 flex items-center border-b border-gray-200 shrink-0",
           collapsed ? "px-3 justify-center" : "px-3 justify-between"
         )}
       >
@@ -102,20 +85,18 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
             <div className="h-7 w-7 bg-brand-600 rounded-lg flex items-center justify-center shrink-0">
               <Trophy className="h-3.5 w-3.5 text-white" />
             </div>
-            <span className="text-sm font-bold text-white truncate">Tournify</span>
+            <span className="text-sm font-bold text-gray-900 truncate">Tournify</span>
           </Link>
         )}
         <button
           onClick={() => setCollapsed((v) => !v)}
           className={cn(
-            "h-6 w-6 flex items-center justify-center rounded-md text-surface-600 hover:text-surface-300 hover:bg-surface-800/60 transition-colors shrink-0",
+            "h-6 w-6 flex items-center justify-center rounded-md text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors shrink-0",
             collapsed && "mt-0"
           )}
           aria-label="Toggle sidebar"
         >
-          <ChevronLeft
-            className={cn("h-3.5 w-3.5 transition-transform duration-200", collapsed && "rotate-180")}
-          />
+          <ChevronLeft className={cn("h-3.5 w-3.5 transition-transform duration-200", collapsed && "rotate-180")} />
         </button>
       </div>
 
@@ -124,7 +105,7 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
         <Link
           href={`/${locale}/tournament/create`}
           className={cn(
-            "flex items-center bg-brand-600 hover:bg-brand-500 text-white rounded-lg text-xs font-semibold transition-colors w-full",
+            "flex items-center bg-brand-600 hover:bg-brand-700 text-white rounded-lg text-xs font-semibold transition-colors w-full",
             collapsed ? "justify-center p-2" : "gap-2 px-3 py-2"
           )}
           title={collapsed ? "Create Tournament" : undefined}
@@ -134,8 +115,7 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
         </Link>
       </div>
 
-      {/* Divider */}
-      <div className="mx-2 h-px bg-surface-800/40 shrink-0" />
+      <div className="mx-2 h-px bg-gray-100 shrink-0" />
 
       {/* Navigation */}
       <nav className="flex-1 py-2 px-2 space-y-0.5 overflow-y-auto">
@@ -150,41 +130,40 @@ export function Sidebar({ locale, tournamentId, userName }: SidebarProps) {
                 "flex items-center rounded-lg text-xs font-medium transition-all",
                 collapsed ? "justify-center p-2.5" : "gap-2.5 px-2.5 py-2",
                 active
-                  ? "bg-brand-900/50 text-brand-300"
-                  : "text-surface-500 hover:text-surface-200 hover:bg-surface-800/50"
+                  ? "bg-brand-50 text-brand-700"
+                  : "text-gray-500 hover:text-gray-900 hover:bg-gray-50"
               )}
             >
-              <Icon className={cn("h-4 w-4 shrink-0", active && "text-brand-400")} />
+              <Icon className={cn("h-4 w-4 shrink-0", active ? "text-brand-600" : "text-gray-400")} />
               {!collapsed && <span>{label}</span>}
             </Link>
           );
         })}
       </nav>
 
-      {/* Divider */}
-      <div className="mx-2 h-px bg-surface-800/40 shrink-0" />
+      <div className="mx-2 h-px bg-gray-100 shrink-0" />
 
       {/* User profile */}
       {userName && (
         <div className={cn("py-3 px-2 shrink-0", collapsed && "flex flex-col items-center")}>
           {collapsed ? (
-            <div className="h-7 w-7 bg-brand-700 rounded-full flex items-center justify-center text-[10px] text-white font-bold">
+            <div className="h-7 w-7 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold">
               {userInitials}
             </div>
           ) : (
             <>
               <div className="flex items-center gap-2.5 px-2 py-1.5 rounded-lg">
-                <div className="h-7 w-7 bg-brand-700 rounded-full flex items-center justify-center text-[10px] text-white font-bold shrink-0">
+                <div className="h-7 w-7 bg-brand-600 rounded-full flex items-center justify-center text-[10px] text-white font-bold shrink-0">
                   {userInitials}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-xs font-semibold text-surface-200 truncate">{userName}</p>
-                  <p className="text-[10px] text-surface-600">Admin</p>
+                  <p className="text-xs font-semibold text-gray-800 truncate">{userName}</p>
+                  <p className="text-[10px] text-gray-400">Organizer</p>
                 </div>
               </div>
               <Link
                 href={`/${locale}/auth/login`}
-                className="flex items-center gap-2 px-2.5 py-1.5 mt-0.5 rounded-lg text-xs text-surface-600 hover:text-danger-400 hover:bg-surface-800/50 transition-colors"
+                className="flex items-center gap-2 px-2.5 py-1.5 mt-0.5 rounded-lg text-xs text-gray-400 hover:text-danger-600 hover:bg-gray-50 transition-colors"
               >
                 <LogOut className="h-3.5 w-3.5" />
                 <span>Sign out</span>

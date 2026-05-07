@@ -15,24 +15,24 @@ function Badge({
   ...props
 }: BadgeProps) {
   const variants = {
-    default: "bg-surface-700 text-surface-200",
-    brand: "bg-brand-900/60 text-brand-300 border border-brand-800",
-    live: "bg-live-900/40 text-live-400 border border-live-800",
-    danger: "bg-danger-900/40 text-danger-400 border border-danger-800",
-    warning: "bg-warning-900/40 text-warning-400 border border-warning-800",
-    success: "bg-live-900/40 text-live-400 border border-live-800",
-    outline: "border border-surface-600 text-surface-300",
+    default: "bg-gray-100 text-gray-600",
+    brand: "bg-brand-50 text-brand-700 border border-brand-200",
+    live: "bg-live-50 text-live-700 border border-live-200",
+    danger: "bg-danger-50 text-danger-600 border border-danger-100",
+    warning: "bg-warning-50 text-warning-600 border border-warning-100",
+    success: "bg-live-50 text-live-700 border border-live-200",
+    outline: "border border-gray-300 text-gray-600",
   };
 
   const sizes = {
-    sm: "px-1.5 py-0.5 text-xs",
+    sm: "px-1.5 py-0.5 text-[10px]",
     md: "px-2 py-0.5 text-xs",
   };
 
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-full font-medium",
+        "inline-flex items-center gap-1 rounded-full font-semibold",
         variants[variant],
         sizes[size],
         className
@@ -41,7 +41,7 @@ function Badge({
     >
       {pulse && (
         <span className="relative flex h-1.5 w-1.5">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-live-400 opacity-75" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-live-500 opacity-75" />
           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-live-500" />
         </span>
       )}

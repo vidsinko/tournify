@@ -15,24 +15,32 @@
   --color-brand-950: #2e1065;
 
   /* Live / Success Green */
+  --color-live-50: #f0fdf4;
+  --color-live-100: #dcfce7;
+  --color-live-200: #bbf7d0;
   --color-live-400: #4ade80;
   --color-live-500: #22c55e;
   --color-live-600: #16a34a;
+  --color-live-700: #15803d;
   --color-live-800: #166534;
   --color-live-900: #14532d;
 
   /* Danger Red */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
   --color-danger-400: #f87171;
   --color-danger-500: #ef4444;
   --color-danger-600: #dc2626;
 
   /* Warning Amber */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
   --color-warning-400: #fbbf24;
   --color-warning-500: #f59e0b;
   --color-warning-600: #d97706;
   --color-warning-900: #451a03;
 
-  /* Neutral Gray Scale */
+  /* Neutral Gray Scale (slate-based) */
   --color-surface-50: #f8fafc;
   --color-surface-100: #f1f5f9;
   --color-surface-200: #e2e8f0;
@@ -45,14 +53,14 @@
   --color-surface-900: #0f172a;
   --color-surface-950: #020617;
 
-  /* Semantic */
-  --color-background: #0a0a15;
-  --color-foreground: #f8fafc;
-  --color-card: #1e293b;
-  --color-card-hover: #263245;
-  --color-border: #334155;
-  --color-muted: #64748b;
-  --color-muted-foreground: #94a3b8;
+  /* Semantic — Light Mode */
+  --color-background: #f7f8fa;
+  --color-foreground: #111827;
+  --color-card: #ffffff;
+  --color-card-hover: #f9fafb;
+  --color-border: #e5e7eb;
+  --color-muted: #6b7280;
+  --color-muted-foreground: #9ca3af;
 
   /* Typography */
   --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -66,9 +74,9 @@
   --radius-2xl: 1.5rem;
 
   /* Shadows */
-  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.15);
-  --shadow-glow-live: 0 0 20px rgba(34, 197, 94, 0.2);
-  --shadow-glow-brand: 0 0 40px rgba(124, 58, 237, 0.25);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-glow: 0 0 20px rgba(124, 58, 237, 0.12);
 }
 
 * {
@@ -83,8 +91,8 @@ html {
 }
 
 body {
-  background-color: #0a0a15;
-  color: #f8fafc;
+  background-color: #f7f8fa;
+  color: #111827;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -97,14 +105,14 @@ body {
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #94a3b8;
 }
 
 /* Focus ring */
@@ -114,7 +122,7 @@ body {
   border-radius: 4px;
 }
 
-/* Live pulse animation */
+/* Animations */
 @keyframes live-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
@@ -141,11 +149,6 @@ body {
   100% { background-position: 200% 0; }
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
-}
-
 .animate-live-pulse {
   animation: live-pulse 1.5s ease-in-out infinite;
 }
@@ -162,56 +165,10 @@ body {
   animation: fade-in 0.3s ease-out;
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
 .skeleton {
-  background: linear-gradient(90deg, #1e293b 25%, #263245 50%, #1e293b 75%);
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
-}
-
-/* Glass morphism card */
-.glass {
-  background: rgba(30, 41, 59, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(51, 65, 85, 0.5);
-}
-
-/* Live badge */
-.badge-live {
-  background: #166534;
-  color: #4ade80;
-  border: 1px solid #16a34a;
-}
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #a78bfa, #c4b5fd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Hero gradient orbs */
-.hero-orb-1 {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.hero-orb-2 {
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
 }
 
 /* Touch-friendly on mobile */

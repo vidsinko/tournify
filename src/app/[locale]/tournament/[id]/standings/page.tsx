@@ -2,280 +2,183 @@
 
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import { useTranslations } from "next-intl";
-import { BarChart3, FileDown, TrendingUp } from "lucide-react";
+import { ChevronUp } from "lucide-react";
 import { AppHeader } from "@/components/layout/app-header";
 import { Sidebar } from "@/components/layout/sidebar";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type FormResult = "W" | "D" | "L";
-
-interface StandingRow {
-  rank: number;
-  team: string;
-  p: number;
-  w: number;
-  d: number;
-  l: number;
+interface Team {
+  name: string;
+  played: number;
+  won: number;
+  drawn: number;
+  lost: number;
   gf: number;
   ga: number;
   gd: number;
   pts: number;
-  form: FormResult[];
-  advances: boolean;
+  advance?: boolean;
 }
 
-// ─── Mock Data ────────────────────────────────────────────────────────────────
-
-const GROUPS: Record<string, StandingRow[]> = {
-  A: [
-    { rank: 1, team: "FC Olimpija",  p: 3, w: 2, d: 1, l: 0, gf: 7, ga: 3, gd: 4,  pts: 7, form: ["W","D","W"], advances: true },
-    { rank: 2, team: "FC Koper",     p: 3, w: 1, d: 1, l: 1, gf: 5, ga: 4, gd: 1,  pts: 4, form: ["L","W","D"], advances: true },
-    { rank: 3, team: "NK Maribor",   p: 2, w: 1, d: 0, l: 1, gf: 4, ga: 4, gd: 0,  pts: 3, form: ["W","L"],     advances: false },
-    { rank: 4, team: "NK Celje",     p: 2, w: 0, d: 0, l: 2, gf: 2, ga: 7, gd: -5, pts: 0, form: ["L","L"],     advances: false },
+const GROUPS: Record<string, Team[]> = {
+  "Group A": [
+    { name: "NK Olimpija", played: 3, won: 2, drawn: 1, lost: 0, gf: 7, ga: 3, gd: 4, pts: 7, advance: true },
+    { name: "Young Stars", played: 3, won: 2, drawn: 1, lost: 0, gf: 5, ga: 2, gd: 3, pts: 7, advance: true },
+    { name: "NK Bravo", played: 3, won: 1, drawn: 0, lost: 2, gf: 4, ga: 6, gd: -2, pts: 3 },
+    { name: "FC Victoria", played: 3, won: 0, drawn: 0, lost: 3, gf: 1, ga: 6, gd: -5, pts: 0 },
   ],
-  B: [
-    { rank: 1, team: "Red Stars",      p: 3, w: 2, d: 1, l: 0, gf: 7, ga: 2, gd: 5,  pts: 7, form: ["W","D","W"], advances: true },
-    { rank: 2, team: "Sunrise FC",     p: 3, w: 1, d: 1, l: 1, gf: 4, ga: 5, gd: -1, pts: 4, form: ["W","L","D"], advances: true },
-    { rank: 3, team: "Blue Wave",      p: 2, w: 0, d: 1, l: 1, gf: 2, ga: 3, gd: -1, pts: 1, form: ["D","L"],     advances: false },
-    { rank: 4, team: "Coastal United", p: 2, w: 0, d: 1, l: 1, gf: 0, ga: 3, gd: -3, pts: 1, form: ["L","D"],     advances: false },
+  "Group B": [
+    { name: "Blue Tigers", played: 3, won: 3, drawn: 0, lost: 0, gf: 9, ga: 1, gd: 8, pts: 9, advance: true },
+    { name: "NK Maribor", played: 3, won: 1, drawn: 1, lost: 1, gf: 4, ga: 4, gd: 0, pts: 4, advance: true },
+    { name: "Red Stars", played: 3, won: 1, drawn: 0, lost: 2, gf: 3, ga: 7, gd: -4, pts: 3 },
+    { name: "FC Galaxy", played: 3, won: 0, drawn: 1, lost: 2, gf: 3, ga: 7, gd: -4, pts: 1 },
   ],
-  C: [
-    { rank: 1, team: "Eagles",         p: 3, w: 2, d: 1, l: 0, gf: 4, ga: 2, gd: 2,  pts: 7, form: ["W","D","W"], advances: true },
-    { rank: 2, team: "River Valley",   p: 3, w: 1, d: 1, l: 1, gf: 3, ga: 3, gd: 0,  pts: 4, form: ["L","D","W"], advances: true },
-    { rank: 3, team: "Panthers",       p: 2, w: 0, d: 1, l: 1, gf: 1, ga: 2, gd: -1, pts: 1, form: ["L","D"],     advances: false },
-    { rank: 4, team: "Mountain Hawks", p: 2, w: 0, d: 1, l: 1, gf: 2, ga: 3, gd: -1, pts: 1, form: ["D","L"],     advances: false },
+  "Group C": [
+    { name: "ND Gorica", played: 3, won: 2, drawn: 0, lost: 1, gf: 6, ga: 3, gd: 3, pts: 6, advance: true },
+    { name: "FC Koper", played: 3, won: 2, drawn: 0, lost: 1, gf: 5, ga: 3, gd: 2, pts: 6, advance: true },
+    { name: "Inter Ljubljana", played: 3, won: 1, drawn: 0, lost: 2, gf: 3, ga: 5, gd: -2, pts: 3 },
+    { name: "NK Celje", played: 3, won: 0, drawn: 0, lost: 3, gf: 1, ga: 4, gd: -3, pts: 0 },
   ],
-  D: [
-    { rank: 1, team: "City Wolves",  p: 3, w: 2, d: 0, l: 1, gf: 8, ga: 5, gd: 3,  pts: 6, form: ["W","L","W"], advances: true },
-    { rank: 2, team: "United XI",    p: 3, w: 2, d: 0, l: 1, gf: 6, ga: 3, gd: 3,  pts: 6, form: ["W","W","L"], advances: true },
-    { rank: 3, team: "Storm FC",     p: 2, w: 0, d: 1, l: 1, gf: 0, ga: 3, gd: -3, pts: 1, form: ["L","D"],     advances: false },
-    { rank: 4, team: "Desert Lions", p: 2, w: 0, d: 1, l: 1, gf: 4, ga: 7, gd: -3, pts: 1, form: ["D","L"],     advances: false },
+  "Group D": [
+    { name: "NK Bravo II", played: 3, won: 2, drawn: 1, lost: 0, gf: 7, ga: 2, gd: 5, pts: 7, advance: true },
+    { name: "Blue Wave", played: 3, won: 1, drawn: 2, lost: 0, gf: 5, ga: 4, gd: 1, pts: 5, advance: true },
+    { name: "Young Stars II", played: 3, won: 0, drawn: 1, lost: 2, gf: 2, ga: 5, gd: -3, pts: 1 },
+    { name: "Inter B", played: 3, won: 0, drawn: 0, lost: 3, gf: 1, ga: 4, gd: -3, pts: 0 },
   ],
 };
 
-// ─── Form Badge ───────────────────────────────────────────────────────────────
-
-const FORM_STYLES: Record<FormResult, string> = {
-  W: "bg-live-900/50 text-live-400 border border-live-800/50",
-  D: "bg-surface-700 text-surface-400 border border-surface-600",
-  L: "bg-danger-900/40 text-danger-400 border border-danger-800/40",
-};
-
-function FormBadge({ result }: { result: FormResult }) {
-  return (
-    <span
-      className={cn(
-        "inline-flex items-center justify-center h-5 w-5 rounded text-xs font-bold",
-        FORM_STYLES[result]
-      )}
-    >
-      {result}
-    </span>
-  );
-}
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
+const GROUP_KEYS = Object.keys(GROUPS);
 
 export default function StandingsPage() {
   const params = useParams();
   const locale = params.locale as string;
   const id = params.id as string;
-  const t = useTranslations("standings");
+  const [activeGroup, setActiveGroup] = useState(GROUP_KEYS[0]);
 
-  const [activeGroup, setActiveGroup] = useState("A");
-  const groupKeys = Object.keys(GROUPS);
-  const rows = GROUPS[activeGroup] ?? [];
-
-  const advanceCount = rows.filter((r) => r.advances).length;
+  const teams = GROUPS[activeGroup] ?? [];
 
   return (
-    <div className="min-h-screen flex flex-col bg-surface-950">
+    <div className="min-h-screen flex flex-col bg-[#f7f8fa]">
       <AppHeader locale={locale} userName="Alex Johnson" />
-      <div className="flex flex-1">
-        <Sidebar locale={locale} tournamentId={id} userName="Alex Johnson" userEmail="alex@example.com" />
 
-        <main className="flex-1 p-4 lg:p-6 max-w-4xl mx-auto w-full">
-          {/* Page Header */}
-          <div className="flex items-center justify-between mb-5">
-            <div>
-              <h1 className="text-xl font-bold text-white flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-brand-400" />
-                {t("title")}
-              </h1>
-              <p className="text-sm text-surface-400 mt-0.5">
-                Spring Cup 2025 · 4 groups · top {advanceCount} advance per group
-              </p>
-            </div>
-            <Button variant="secondary" size="sm">
-              <FileDown className="h-3.5 w-3.5" />
-              {t("exportStandings")}
-            </Button>
-          </div>
+      <div className="flex flex-1 min-h-0">
+        <Sidebar locale={locale} tournamentId={id} userName="Alex Johnson" />
 
-          {/* Group Tabs */}
-          <div className="flex gap-1 mb-5 p-1 bg-surface-900 rounded-xl w-fit">
-            {groupKeys.map((g) => {
-              const liveInGroup = false; // could be computed
-              return (
+        <main className="flex-1 overflow-auto">
+          <div className="max-w-2xl mx-auto px-4 py-5 lg:px-6">
+
+            <h1 className="text-xl font-bold text-gray-900 mb-1">Group Standings</h1>
+            <p className="text-sm text-gray-500 mb-5">Spring Cup 2025 · Group stage</p>
+
+            {/* Group tabs */}
+            <div className="flex gap-2 mb-5">
+              {GROUP_KEYS.map((g) => (
                 <button
                   key={g}
                   onClick={() => setActiveGroup(g)}
                   className={cn(
-                    "px-4 py-1.5 rounded-lg text-sm font-medium transition-all",
+                    "px-4 py-2 rounded-xl text-sm font-semibold transition-colors",
                     activeGroup === g
-                      ? "bg-surface-700 text-white shadow-sm"
-                      : "text-surface-400 hover:text-surface-200"
+                      ? "bg-gray-900 text-white"
+                      : "bg-white border border-gray-200 text-gray-600 hover:border-gray-300"
                   )}
                 >
-                  {t("group")} {g}
+                  {g}
                 </button>
-              );
-            })}
-          </div>
-
-          {/* Standings Table */}
-          <div className="bg-surface-800 border border-surface-700 rounded-xl overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[640px]">
-                <thead>
-                  <tr className="border-b border-surface-700">
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-8">
-                      {t("rank")}
-                    </th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide">
-                      {t("team")}
-                    </th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("played")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("won")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("drawn")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("lost")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("goalsFor")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-9">{t("goalsAgainst")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide w-10">{t("goalDifference")}</th>
-                    <th className="text-center px-3 py-3 text-xs font-semibold text-white uppercase tracking-wide w-10">{t("points")}</th>
-                    <th className="text-left px-4 py-3 text-xs font-semibold text-surface-500 uppercase tracking-wide">{t("form")}</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-surface-700/50">
-                  {rows.map((row, i) => (
-                    <tr
-                      key={row.team}
-                      className={cn(
-                        "transition-colors hover:bg-surface-700/20",
-                        i === 0 && "bg-brand-900/15",
-                        i === 1 && "bg-brand-900/8",
-                        !row.advances && "opacity-80"
-                      )}
-                    >
-                      {/* Rank */}
-                      <td className="px-4 py-3">
-                        <span
-                          className={cn(
-                            "text-sm font-bold w-6 h-6 inline-flex items-center justify-center rounded",
-                            row.rank === 1 ? "text-amber-400" :
-                            row.rank === 2 ? "text-surface-300" :
-                            "text-surface-500"
-                          )}
-                        >
-                          {row.rank}
-                        </span>
-                      </td>
-
-                      {/* Team */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <span className="text-sm font-semibold text-white">{row.team}</span>
-                          {row.advances && (
-                            <Badge variant="brand" size="sm">
-                              <TrendingUp className="h-2.5 w-2.5" />
-                              {t("advances")}
-                            </Badge>
-                          )}
-                        </div>
-                      </td>
-
-                      {/* Stats */}
-                      <td className="text-center px-3 py-3 text-sm text-surface-400 tabular-nums">{row.p}</td>
-                      <td className="text-center px-3 py-3 text-sm font-medium text-live-400 tabular-nums">{row.w}</td>
-                      <td className="text-center px-3 py-3 text-sm text-surface-400 tabular-nums">{row.d}</td>
-                      <td className="text-center px-3 py-3 text-sm text-danger-400 tabular-nums">{row.l}</td>
-                      <td className="text-center px-3 py-3 text-sm text-surface-300 tabular-nums">{row.gf}</td>
-                      <td className="text-center px-3 py-3 text-sm text-surface-300 tabular-nums">{row.ga}</td>
-                      <td className="text-center px-3 py-3 text-sm tabular-nums">
-                        <span className={cn(
-                          "font-medium",
-                          row.gd > 0 ? "text-live-400" : row.gd < 0 ? "text-danger-400" : "text-surface-400"
-                        )}>
-                          {row.gd > 0 ? `+${row.gd}` : row.gd}
-                        </span>
-                      </td>
-                      <td className="text-center px-3 py-3">
-                        <span className="text-sm font-bold text-white tabular-nums">{row.pts}</span>
-                      </td>
-
-                      {/* Form */}
-                      <td className="px-4 py-3">
-                        <div className="flex gap-1">
-                          {row.form.map((r, fi) => (
-                            <FormBadge key={fi} result={r} />
-                          ))}
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              ))}
             </div>
 
-            {/* Legend */}
-            <div className="px-4 py-3 border-t border-surface-700 bg-surface-900/30">
-              <div className="flex items-center gap-5 flex-wrap text-xs text-surface-500">
-                <span className="flex items-center gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-sm bg-brand-700/60" />
-                  Top {advanceCount} advance to knockout
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <FormBadge result="W" />
-                  Win
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <FormBadge result="D" />
-                  Draw
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <FormBadge result="L" />
-                  Loss
-                </span>
+            {/* Standings table */}
+            <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+              {/* Header */}
+              <div className="flex items-center px-4 py-2.5 bg-gray-50 border-b border-gray-100">
+                <div className="w-6 shrink-0" />
+                <div className="flex-1 text-xs font-bold text-gray-500 uppercase tracking-wide">Team</div>
+                {["P", "W", "D", "L", "GF", "GA", "GD", "PTS"].map((h) => (
+                  <div key={h} className="w-8 text-center text-xs font-bold text-gray-500 uppercase tracking-wide">{h}</div>
+                ))}
+              </div>
+
+              {/* Rows */}
+              <div className="divide-y divide-gray-100">
+                {teams.map((team, i) => (
+                  <div
+                    key={team.name}
+                    className={cn(
+                      "flex items-center px-4 py-3 transition-colors hover:bg-gray-50",
+                      team.advance && "bg-brand-50/40"
+                    )}
+                  >
+                    <div className="w-6 shrink-0">
+                      {team.advance ? (
+                        <ChevronUp className="h-4 w-4 text-brand-500" />
+                      ) : (
+                        <span className="text-xs text-gray-400 font-medium">{i + 1}</span>
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-[9px] font-bold text-gray-600 shrink-0">
+                          {team.name.charAt(0)}
+                        </div>
+                        <p className={cn(
+                          "text-sm font-semibold truncate",
+                          team.advance ? "text-gray-900" : "text-gray-700"
+                        )}>
+                          {team.name}
+                        </p>
+                      </div>
+                    </div>
+                    {[team.played, team.won, team.drawn, team.lost, team.gf, team.ga].map((v, vi) => (
+                      <div key={vi} className="w-8 text-center text-sm text-gray-500 tabular-nums">{v}</div>
+                    ))}
+                    <div className={cn(
+                      "w-8 text-center text-sm tabular-nums font-medium",
+                      team.gd > 0 ? "text-live-600" : team.gd < 0 ? "text-danger-500" : "text-gray-500"
+                    )}>
+                      {team.gd > 0 ? `+${team.gd}` : team.gd}
+                    </div>
+                    <div className="w-8 text-center text-sm font-black text-gray-900 tabular-nums">{team.pts}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Legend */}
+              <div className="px-4 py-3 border-t border-gray-100 flex items-center gap-4">
+                <div className="flex items-center gap-1.5">
+                  <ChevronUp className="h-3.5 w-3.5 text-brand-500" />
+                  <span className="text-[11px] text-gray-500">Advance to knockout</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* All groups summary */}
-          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {groupKeys.map((g) => {
-              const leader = GROUPS[g][0];
-              return (
-                <button
-                  key={g}
-                  onClick={() => setActiveGroup(g)}
-                  className={cn(
-                    "bg-surface-800 border rounded-xl p-3 text-left transition-all hover:border-surface-600",
-                    activeGroup === g ? "border-brand-600" : "border-surface-700"
-                  )}
-                >
-                  <p className="text-xs text-surface-500 mb-1">Group {g}</p>
-                  <p className="text-sm font-semibold text-white truncate">{leader.team}</p>
-                  <p className="text-xs text-surface-400 mt-0.5">
-                    {leader.pts} pts · {leader.gf}–{leader.ga}
-                  </p>
-                </button>
-              );
-            })}
+            {/* All groups summary */}
+            <div className="mt-5">
+              <h2 className="text-sm font-bold text-gray-900 mb-3">All Groups — Top Teams</h2>
+              <div className="grid grid-cols-2 gap-3">
+                {GROUP_KEYS.map((g) => {
+                  const top2 = GROUPS[g].slice(0, 2);
+                  return (
+                    <button
+                      key={g}
+                      onClick={() => setActiveGroup(g)}
+                      className="bg-white border border-gray-200 rounded-2xl p-3.5 text-left hover:shadow-md hover:-translate-y-px transition-all shadow-sm"
+                    >
+                      <p className="text-xs font-bold text-gray-500 mb-2">{g}</p>
+                      {top2.map((t, i) => (
+                        <div key={t.name} className="flex items-center justify-between mb-1">
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-[10px] text-gray-400 w-3">{i + 1}</span>
+                            <p className="text-xs font-semibold text-gray-800 truncate max-w-[100px]">{t.name}</p>
+                          </div>
+                          <span className="text-xs font-black text-gray-900">{t.pts}pts</span>
+                        </div>
+                      ))}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </main>
       </div>
