@@ -15,16 +15,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-surface-200 mb-1.5"
-          >
+          <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 mb-1.5">
             {label}
           </label>
         )}
         <div className="relative">
           {leftIcon && (
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-surface-400">
+            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
               {leftIcon}
             </div>
           )}
@@ -32,11 +29,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             id={inputId}
             className={cn(
-              "w-full h-10 rounded-lg border bg-surface-900 text-white placeholder-surface-500",
-              "border-surface-700 focus:border-brand-500 focus:ring-1 focus:ring-brand-500",
-              "px-3 py-2 text-sm transition-colors outline-none",
+              "w-full h-10 rounded-xl border bg-white text-gray-900 placeholder-gray-400",
+              "border-gray-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20",
+              "px-3 py-2 text-sm transition-colors outline-none shadow-sm",
               "disabled:opacity-50 disabled:cursor-not-allowed",
-              error && "border-danger-500 focus:border-danger-500 focus:ring-danger-500",
+              error && "border-danger-500 focus:border-danger-500 focus:ring-danger-500/20",
               leftIcon && "pl-9",
               rightIcon && "pr-9",
               className
@@ -44,13 +41,13 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-surface-400">
+            <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
               {rightIcon}
             </div>
           )}
         </div>
-        {error && <p className="mt-1 text-xs text-danger-400">{error}</p>}
-        {hint && !error && <p className="mt-1 text-xs text-surface-500">{hint}</p>}
+        {error && <p className="mt-1 text-xs text-danger-600">{error}</p>}
+        {hint && !error && <p className="mt-1 text-xs text-gray-500">{hint}</p>}
       </div>
     );
   }
@@ -69,10 +66,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-surface-200 mb-1.5"
-          >
+          <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 mb-1.5">
             {label}
           </label>
         )}
@@ -80,9 +74,9 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full h-10 rounded-lg border bg-surface-900 text-white",
-            "border-surface-700 focus:border-brand-500 focus:ring-1 focus:ring-brand-500",
-            "px-3 py-2 text-sm transition-colors outline-none",
+            "w-full h-10 rounded-xl border bg-white text-gray-900",
+            "border-gray-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20",
+            "px-3 py-2 text-sm transition-colors outline-none shadow-sm",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             error && "border-danger-500",
             className
@@ -91,8 +85,8 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         >
           {children}
         </select>
-        {error && <p className="mt-1 text-xs text-danger-400">{error}</p>}
-        {hint && !error && <p className="mt-1 text-xs text-surface-500">{hint}</p>}
+        {error && <p className="mt-1 text-xs text-danger-600">{error}</p>}
+        {hint && !error && <p className="mt-1 text-xs text-gray-500">{hint}</p>}
       </div>
     );
   }
@@ -111,10 +105,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-surface-200 mb-1.5"
-          >
+          <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 mb-1.5">
             {label}
           </label>
         )}
@@ -122,17 +113,17 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full rounded-lg border bg-surface-900 text-white placeholder-surface-500",
-            "border-surface-700 focus:border-brand-500 focus:ring-1 focus:ring-brand-500",
-            "px-3 py-2 text-sm transition-colors outline-none resize-none",
+            "w-full rounded-xl border bg-white text-gray-900 placeholder-gray-400",
+            "border-gray-300 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20",
+            "px-3 py-2 text-sm transition-colors outline-none resize-none shadow-sm",
             "disabled:opacity-50 disabled:cursor-not-allowed",
             error && "border-danger-500",
             className
           )}
           {...props}
         />
-        {error && <p className="mt-1 text-xs text-danger-400">{error}</p>}
-        {hint && !error && <p className="mt-1 text-xs text-surface-500">{hint}</p>}
+        {error && <p className="mt-1 text-xs text-danger-600">{error}</p>}
+        {hint && !error && <p className="mt-1 text-xs text-gray-500">{hint}</p>}
       </div>
     );
   }
