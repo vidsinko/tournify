@@ -1,8 +1,9 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getLocale } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { Toaster } from "sonner";
+import { MobileBottomNav } from "@/components/layout/mobile-nav";
 
 export default async function LocaleLayout({
   children,
@@ -21,16 +22,20 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} className="h-full">
-      <body className="min-h-full bg-surface-950 text-white antialiased">
+      <body className="min-h-full bg-[#0a0a15] text-white antialiased">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          {children}
+          {/* Content with bottom padding on mobile for nav bar */}
+          <div className="pb-[60px] lg:pb-0">
+            {children}
+          </div>
+          <MobileBottomNav />
           <Toaster
             theme="dark"
             position="bottom-right"
             toastOptions={{
               style: {
-                background: "#1e293b",
-                border: "1px solid #334155",
+                background: "#1e1e2e",
+                border: "1px solid rgba(51,65,85,0.6)",
                 color: "#f8fafc",
               },
             }}
