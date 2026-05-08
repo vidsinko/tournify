@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="sl" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0B14" />
+  <title>Tournify — The Operating System for Tournaments</title>
+  <meta name="description" content="The modern operating system for youth & amateur sports tournaments. Organize. Compete. Connect." />
+
+  <!-- Favicon (inline SVG, trophy mark) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0%25' stop-color='%237B5CFF'/><stop offset='100%25' stop-color='%23B07CFF'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230A0B14'/><path fill='url(%23g)' d='M22 16h20v3a10 10 0 0 1-10 10 10 10 0 0 1-10-10v-3zm-6 1h4v3a14 14 0 0 0 4 9.7l-2.4 1.4A6 6 0 0 1 18 25v-2h-2v-6zm32 0h4v6h-2v2a6 6 0 0 1-3.6 5.5l-2.4-1.4A14 14 0 0 0 48 20v-3zm-18 17h4v6h4v3H22v-3h4v-6z'/></svg>" />
+
+  <!-- Fonts: Geist + Geist Mono via Google Fonts equivalent (Bricolage Grotesque + JetBrains Mono fallback) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- App shell. Everything renders into #app. -->
+  <div id="app" data-view="welcome"></div>
+
+  <!-- Toast container -->
+  <div id="toasts" class="toasts" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Modal root -->
+  <div id="modal-root"></div>
+
+  <!-- Loading splash (briefly shown on first paint) -->
+  <div id="splash" class="splash">
+    <div class="splash__mark">
+      <svg viewBox="0 0 64 64" width="48" height="48" aria-hidden="true">
+        <defs>
+          <linearGradient id="sg" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#7B5CFF"/><stop offset="100%" stop-color="#B07CFF"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#sg)" d="M22 16h20v3a10 10 0 0 1-10 10 10 10 0 0 1-10-10v-3zm-6 1h4v3a14 14 0 0 0 4 9.7l-2.4 1.4A6 6 0 0 1 18 25v-2h-2v-6zm32 0h4v6h-2v2a6 6 0 0 1-3.6 5.5l-2.4-1.4A14 14 0 0 0 48 20v-3zm-18 17h4v6h4v3H22v-3h4v-6z"/>
+      </svg>
+    </div>
+    <div class="splash__name">Tournify</div>
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="app.js"></script>
+  <script src="views.js"></script>
+  <script src="views2.js"></script>
+  <script src="views3.js"></script>
+  <script src="phase2.js"></script>
+  <script src="phase3.js"></script>
+  <script src="phase4.js"></script>
+</body>
+</html>
